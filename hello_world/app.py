@@ -1,6 +1,6 @@
 import json
 
-# import requests
+import requests
 
 
 def lambda_handler(event, context):
@@ -26,7 +26,8 @@ def lambda_handler(event, context):
     """
 
     # try:
-    #     ip = requests.get("http://checkip.amazonaws.com/")
+    ip = requests.get("http://checkip.amazonaws.com/")
+    print('ipppp',ip)
     # except requests.RequestException as e:
     #     # Send some context about this error to Lambda Logs
     #     print(e)
