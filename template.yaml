@@ -1,11 +1,8 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  github-actions-with-aws-sam
-
   Sample SAM Template for github-actions-with-aws-sam
 
-# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
     Timeout: 5
@@ -13,7 +10,7 @@ Globals:
 
 Resources:
   Lambda001:
-    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Type: AWS::Serverless::Function
     Properties:
       CodeUri: src/
       Handler: app.handler
@@ -36,4 +33,4 @@ Resources:
 Outputs:
   Lambda001:
     Description: "Lambda001 ARN"
-    Value: !GetAtt HelloWorldFunction.Arn
+    Value: !GetAtt Lambda001.Arn
