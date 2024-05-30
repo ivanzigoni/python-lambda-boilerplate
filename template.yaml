@@ -20,6 +20,11 @@ Resources:
       Runtime: python3.8
       Architectures:
         - x86_64
+  HelloWorldFunctionUrl:
+    Type: AWS::Lambda::Url
+    Properties:
+      AuthType: NONE
+      TargetFunctionArn: !GetAtt HelloWorldFunction.Arn
 
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
