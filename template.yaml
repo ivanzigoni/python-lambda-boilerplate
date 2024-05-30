@@ -21,16 +21,16 @@ Resources:
       Architectures:
         - x86_64
       Policies:
-        Version: "2012-10-17"
-        Statement:
-          - StatementId: FunctionURLAllowPublicAccess
-            Effect: Allow
-            Principal: "*"
-            Action: "lambda:InvokeFunctionUrl"
-            Resource: "arn:aws:lambda:us-east-1:649277342826:function:random"
-            Condition:
-              StringEquals:
-                "lambda:FunctionUrlAuthType": NONE
+        - Version: "2012-10-17"
+          Statement:
+            - StatementId: FunctionURLAllowPublicAccess
+              Effect: Allow
+              Principal: "*"
+              Action: "lambda:InvokeFunctionUrl"
+              Resource: "arn:aws:lambda:us-east-1:649277342826:function:random"
+              Condition:
+                StringEquals:
+                  "lambda:FunctionUrlAuthType": NONE
   HelloWorldFunctionUrl:
     Type: AWS::Lambda::Url
     Properties:
