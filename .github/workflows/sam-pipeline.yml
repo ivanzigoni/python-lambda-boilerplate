@@ -22,10 +22,10 @@ jobs:
 
       # sam deploy
       - run: >
-       sam deploy 
-      --no-confirm-changeset 
-      --no-fail-on-empty-changeset 
-      --stack-name ${{ vars.STACK_NAME }} 
-      --s3-bucket ${{ vars.DEPLOY_BUCKET }} 
-      --capabilities CAPABILITY_IAM 
-      --region ${{ vars.DEPLOY_REGION }}
+        sam deploy
+        --no-confirm-changeset 
+        --no-fail-on-empty-changeset 
+        --stack-name ${{ vars.STACK_NAME }} 
+        --s3-bucket ${{ vars.DEPLOY_BUCKET }} 
+        --capabilities CAPABILITY_IAM 
+        --region ${{ vars.DEPLOY_REGION }}
