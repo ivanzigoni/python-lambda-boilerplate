@@ -8,35 +8,32 @@ Description: >
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
-    Timeout: 3
+    Timeout: 5
     MemorySize: 128
 
 Resources:
-  HelloWorldFunction:
+  Lambda001:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: hello_world/
-      Handler: app.lambda_handler
-      Runtime: python3.8
+      CodeUri: src/
+      Handler: app.handler
+      Runtime: python3.10
       Architectures:
         - x86_64
-  HelloWorldFunctionUrl:
+  Lambda001PublicUrl:
     Type: AWS::Lambda::Url
     Properties:
       AuthType: NONE
-      TargetFunctionArn: !GetAtt HelloWorldFunction.Arn
-  HelloWorldPermission:
+      TargetFunctionArn: !GetAtt Lambda001.Arn
+  Lambda001Permission:
     Type: AWS::Lambda::Permission
     Properties:
       Principal: "*"
       Action: "lambda:InvokeFunctionUrl"
-      FunctionName: !GetAtt HelloWorldFunction.Arn
+      FunctionName: !GetAtt Lambda001.Arn
       FunctionUrlAuthType: NONE
 
 Outputs:
-  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
-  # Find out more about other implicit resources you can reference within SAM
-  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
-  HelloWorldFunction:
-    Description: "Hello World Lambda Function ARN"
+  Lambda001:
+    Description: "Lambda001 ARN"
     Value: !GetAtt HelloWorldFunction.Arn
