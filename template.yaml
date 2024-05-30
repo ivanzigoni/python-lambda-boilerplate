@@ -35,10 +35,8 @@ Resources:
       Effect: Allow
       Principal: "*"
       Action: "lambda:InvokeFunctionUrl"
-      Resource: !GetAtt HelloWorldFunction.Arn
-      Condition:
-        StringEquals:
-          "lambda:FunctionUrlAuthType": NONE
+      FunctionName: !GetAtt HelloWorldFunction.Arn
+      FunctionUrlAuthType: NONE
 
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
