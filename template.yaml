@@ -24,7 +24,8 @@ Resources:
     Type: AWS::Lambda::Url
     Properties:
       Cors:
-        AllowOrigins: "*"
+        AllowOrigins:
+          - "*"
       AuthType: NONE
       TargetFunctionArn: !GetAtt HelloWorldFunction.Arn
 
