@@ -21,4 +21,10 @@ jobs:
       # Run Unit tests- Specify unit tests here
 
       # sam deploy
-      - run: sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --stack-name sam-hello-world --s3-bucket lambda1717077446856 --capabilities CAPABILITY_IAM --region us-east-1
+      - run: sam deploy \
+      --no-confirm-changeset \
+      --no-fail-on-empty-changeset \
+      --stack-name ${{ vars.STACK_NAME }} \
+      --s3-bucket ${{ vars.DEPLOY_BUCKET }} \
+      --capabilities CAPABILITY_IAM \
+      --region ${{ vars.DEPLOY_REGION }}

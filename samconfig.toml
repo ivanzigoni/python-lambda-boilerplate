@@ -3,8 +3,8 @@
 version = 0.1
 
 [default]
-[default.global.parameters]
-stack_name = "github-actions-with-aws-sam"
+# [default.global.parameters]
+stack_name = "${{ vars.TEST2 }}"
 
 [default.build.parameters]
 cached = true
