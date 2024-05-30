@@ -24,18 +24,21 @@ Resources:
         - Version: "2012-10-17"
           Statement:
             - StatementId: FunctionURLAllowPublicAccess
-              Effect: Allow
-              Principal: "*"
-              Action: "lambda:InvokeFunctionUrl"
-              Resource: !GetAtt HelloWorldFunction.Arn
-              Condition:
-                StringEquals:
-                  "lambda:FunctionUrlAuthType": NONE
   HelloWorldFunctionUrl:
     Type: AWS::Lambda::Url
     Properties:
       AuthType: NONE
       TargetFunctionArn: !GetAtt HelloWorldFunction.Arn
+  HelloWorldPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Effect: Allow
+      Principal: "*"
+      Action: "lambda:InvokeFunctionUrl"
+      Resource: !GetAtt HelloWorldFunction.Arn
+      Condition:
+        StringEquals:
+          "lambda:FunctionUrlAuthType": NONE
 
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
