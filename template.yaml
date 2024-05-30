@@ -32,7 +32,6 @@ Resources:
   HelloWorldPermission:
     Type: AWS::Lambda::Permission
     Properties:
-      Effect: Allow
       Principal: "*"
       Action: "lambda:InvokeFunctionUrl"
       FunctionName: !GetAtt HelloWorldFunction.Arn
